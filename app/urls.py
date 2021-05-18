@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('api/v1/', include('api.urls', namespace="api")),
-    path('auth', include('momoauth.urls', namespace="momoauth")),
+    path('api/v1/auth/', include('momoauth.urls', namespace="momoauth")),
     path('', include('api.urls', namespace="api-health")),
 ]
