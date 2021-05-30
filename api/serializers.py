@@ -3,8 +3,6 @@ from django.db.models import ObjectDoesNotExist
 from rest_framework.exceptions import APIException
 from rest_framework.serializers import (
     ModelSerializer,
-    RelatedField,
-    IntegerField
 )
 
 from .models import (
@@ -16,5 +14,5 @@ User = get_user_model()
 class MomoSerializer(ModelSerializer):
     class Meta:
         model = Momo
-        fields = ['username', 'email']
+        fields = ['name', 'picture']
 

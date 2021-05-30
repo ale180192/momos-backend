@@ -1,9 +1,10 @@
 from django.urls import path
-from rest_framework.authtoken import views as drf_token_view
+
+from .views import CustomObtainAuthToken
 
 app_name = 'momoauth'
 urlpatterns = [
     path('token',
-        drf_token_view.ObtainAuthToken.as_view(),
+        CustomObtainAuthToken.as_view(),
         name='token'),
 ]

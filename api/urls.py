@@ -7,11 +7,10 @@ from .views import (
 )
 
 router = SimpleRouter()
-router.register("momos", MomoViewSet)
+router.register("momos", MomoViewSet, basename="momos")
 
 app_name = 'api'
 urlpatterns = [
     path('', HealthView.as_view(), name='health'),
 ]
-
 urlpatterns += router.urls

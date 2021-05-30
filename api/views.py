@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.viewsets import ViewSet
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 
 
@@ -17,7 +17,7 @@ class HealthView(APIView):
     def get(self, request):
         return Response([], 200)
 
-class MomoViewSet(ViewSet):
+class MomoViewSet(ModelViewSet):
     serializer_class = MomoSerializer
     queryset = Momo.objects.all()
     authentication_classes = [CustomTokenAuthentication, ]
