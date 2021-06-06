@@ -5,7 +5,6 @@ env:
 phases:
   build:
     commands:
-      - aws ecr get-login-password | docker login --username AWS --password-stdin "$(aws sts get-caller-identity --query Account --output text).dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
       - echo "Building a Docker image.."
       - docker build -t momos-backend . --file Dockerfile
       - echo "Tagging Docker image for ECR.."
@@ -13,6 +12,7 @@ phases:
       # - docker tag momos-backend ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
       - docker tag momos-backend ${ECR_REPO}:lastest
       - echo "Logging into ECR.."
+      - aws ecr get-login-password | docker login --username AWS --password-stdin "$(aws sts get-caller-identity --query Account --output text).dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
       - echo "Pushing Docker image to ECR.."
       # - docker push ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
       - docker push ${ECR_REPO}:lastest

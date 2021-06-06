@@ -15,4 +15,4 @@ COPY nginx.conf /etc/nginx/
 
 RUN pip install -r requirements.txt
 COPY init.sh /code/init.sh
-CMD ["./init.sh"]
+ENTRYPOINT ["sh","/code/init.sh"]
