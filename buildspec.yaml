@@ -10,6 +10,6 @@ phases:
       - echo "Tagging Docker image for ECR.."
       - docker tag momos-backend ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
       - echo "Logging into ECR.."
-      - $(aws ecr get-login --no-include-email)
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - echo "Pushing Docker image to ECR.."
       - docker push ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
