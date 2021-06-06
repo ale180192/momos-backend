@@ -5,11 +5,14 @@ env:
 phases:
   build:
     commands:
+      - echo "Logging into ECR.."
+      - aws --version
+      - pip install --upgrade awscli
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - echo "Building a Docker image.."
       - docker build -t momos-backend . --file Dockerfile
       - echo "Tagging Docker image for ECR.."
       - docker tag momos-backend ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
-      - echo "Logging into ECR.."
-      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - echo "Pushing Docker image to ECR.."
       - docker push ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
