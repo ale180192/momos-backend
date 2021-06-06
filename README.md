@@ -45,4 +45,4 @@ Click [here](https://docs.aws.amazon.com/codebuild/) to go to see the aws doc
 
 ## Roadmap
 
-* here put something 
+* Use the CODEBUILD_SOURCE_VERSION into the builspec.yaml file
