@@ -2,10 +2,10 @@ version: 0.2
 env:
   variables:
     ECR_REPO: 985991030409.dkr.ecr.us-east-1.amazonaws.com/momos-backend
-phases:
-  install:
-    runtime-versions:
-      docker: 18
+# phases: <only for runtime v4 or less>
+#   install:
+#     runtime-versions:
+#       docker: 18
   build:
     commands:
       - echo "Building a Docker image.."
